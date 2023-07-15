@@ -1,95 +1,120 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import { useState } from "react";
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Typography,
+  Paper,
+  Snackbar,
+} from "@mui/material";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import { ShortURLDisplay, URLInput } from "@/components";
+import { URL_TYPE } from "@/types/url.types";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 export default function Home() {
+  const [shortUrl, setShortUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const validURL = (str: string) => {
+    const pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator
+    return !!pattern.test(str);
+  };
+
+  const handleURLSubmit = (value: string) => {
+    try {
+      setLoading(true);
+
+      if (!validURL(value)) {
+        throw new Error("Invalid URL");
+      }
+
+      const storageURLs = localStorage.getItem("urls");
+      const urls: URL_TYPE[] = storageURLs ? JSON.parse(storageURLs) : [];
+
+      const urlExists = urls.some((url) => url.longURL === value);
+
+      if (urlExists) {
+        throw new Error("URL already exists");
+      }
+
+      const randomString = Math.random().toString(36).substring(7);
+      const shortUrl = `http://localhost:3000/s/${randomString}`;
+      setShortUrl(shortUrl);
+
+      urls.push({ longURL: value, shortURL: shortUrl, id: randomString });
+      localStorage.setItem("urls", JSON.stringify(urls));
+    } catch (error: any) {
+      console.error(error);
+      setErrorMessage(error.message);
+      setOpenSnackbar(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnackbar(false);
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
+    <Container>
+      <Box my={4} px={2} py={3} component={Paper} elevation={3}>
+        <Typography variant="h4" align="center" gutterBottom>
+          URL Shortener
+        </Typography>
+        <Box
+          my={12}
+          maxWidth={640}
+          mx="auto"
+          display={"flex"}
+          flexDirection={"column"}
+          gap={4}
+        >
+          <URLInput onSubmit={handleURLSubmit} />
+          {loading && (
+            <Box display="flex" justifyContent="center">
+              <CircularProgress />
+            </Box>
+          )}
+          {shortUrl && <ShortURLDisplay shortUrl={shortUrl} />}
+        </Box>
+      </Box>
+
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
+      >
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <Alert onClose={handleClose} severity="error">
+            {errorMessage}
+          </Alert>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </Snackbar>
+    </Container>
+  );
 }
