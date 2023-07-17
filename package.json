@@ -1,5 +1,16 @@
 {
   "name": "url-shortener",
+  "displayName": "URL Shortener",
+  
+  "repository": {
+    "type": "GitHub",
+    "url": "https://github.com/mohammad-rahi/url-shortener"
+  },
+  "author": {
+    "name": "Mohammad Rahi",
+    "email": "cs.mohammadrahi@gmail.com",
+    "url": "https://github.com/mohammad-rahi"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,7 +26,6 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.0",
     "@mui/material": "^5.14.0",
-    "@mui/styles": "^5.14.0",
     "@mui/system": "^5.14.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",

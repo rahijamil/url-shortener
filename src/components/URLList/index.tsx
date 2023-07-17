@@ -14,7 +14,7 @@ import {
 import { useRouter } from "next/navigation";
 import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
 import { blue, red } from "@mui/material/colors";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useUrls from "@/hooks/useURLs";
 
 export type URLListProps = {

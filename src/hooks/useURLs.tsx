@@ -31,7 +31,7 @@ const useUrls = () => {
     const newUrls = urls.filter((url) => url.id !== id);
     setUrls(newUrls);
     localStorage.setItem("urls", JSON.stringify(newUrls));
-    setLoading(false); 
+    setLoading(false);
   };
 
   return { urls, setUrls, loading, handleDelete };
