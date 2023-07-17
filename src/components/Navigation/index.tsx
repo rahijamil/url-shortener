@@ -11,12 +11,13 @@ import {
   Container,
 } from "@mui/material";
 import Link from "next/link";
+import { navigations } from "./navigations";
 
 export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
         <Container>
           <Box
@@ -40,24 +41,24 @@ export default function Navigation() {
             </Box>
 
             <Box>
-              <Link href="/" passHref>
-                <Button
-                  color={pathname === "/" ? "primary" : "inherit"}
-                  variant={pathname === "/" ? "contained" : "text"}
-                  aria-label="Home Page Navigation"
-                >
-                  Home
-                </Button>
-              </Link>
-              <Link href="/list" passHref>
-                <Button
-                  color={pathname === "/list" ? "primary" : "inherit"}
-                  variant={pathname === "/list" ? "contained" : "text"}
-                  aria-label="List Page Navigation"
-                >
-                  List
-                </Button>
-              </Link>
+              {navigations.map((navigation) => (
+                <Link href={navigation.path} passHref key={navigation.id}>
+                  <Button
+                    style={{
+                      border: `2px solid ${
+                        pathname === navigation.path ? "white" : "transparent"
+                      }`,
+                    }}
+                    color="inherit"
+                    // variant={
+                    //   pathname === navigation.path ? "contained" : "text"
+                    // }
+                    aria-label={`${navigation.name} Page Navigation`}
+                  >
+                    {navigation.name}
+                  </Button>
+                </Link>
+              ))}
             </Box>
           </Box>
         </Container>

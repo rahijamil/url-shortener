@@ -81,7 +81,7 @@ export default function Home() {
 
   return (
     <Container>
-      <Box my={4} px={2} py={3} component={Paper} elevation={3}>
+      <Box my={4} px={2} py={3} pt={4} component={Paper} elevation={3}>
         <Typography variant="h4" align="center" gutterBottom>
           URL Shortener
         </Typography>

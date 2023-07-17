@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
-        {children}
+        <main style={{ paddingTop: "5rem", paddingBottom: "2rem" }}>
+          {children}
+        </main>
       </body>
     </html>
   );

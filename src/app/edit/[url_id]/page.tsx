@@ -1,26 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import { URL_TYPE } from "@/types/url.types";
+import useURLs from "@/hooks/useURLs";
 
 export default function EditPage({
   params: { url_id },
 }: {
   params: { url_id: string };
 }) {
-  const [urls, setUrls] = useState<URL_TYPE[]>([]);
+  const { urls, setUrls, handleDelete } = useURLs();
   const [editIndex, setEditIndex] = useState(-1);
   const [editValue, setEditValue] = useState("");
-
-  useEffect(() => {
-    const isStorageURLs = localStorage.getItem("urls");
-
-    if (isStorageURLs) {
-      const storedUrls = JSON.parse(isStorageURLs) || [];
-      setUrls(storedUrls);
-    }
-  }, []);
 
   const handleEdit = (index: number) => {
     setEditIndex(index);
@@ -33,13 +24,6 @@ export default function EditPage({
     localStorage.setItem("urls", JSON.stringify(newUrls));
     setUrls(newUrls);
     setEditIndex(-1);
-  };
-
-  const handleDelete = (index: number) => {
-    let newUrls = [...urls];
-    newUrls.splice(index, 1);
-    localStorage.setItem("urls", JSON.stringify(newUrls));
-    setUrls(newUrls);
   };
 
   return (
@@ -61,7 +45,9 @@ export default function EditPage({
               )}
               <Button onClick={() => handleEdit(index)}>Edit</Button>
               <Button onClick={() => handleSave()}>Save</Button>
-              <Button onClick={() => handleDelete(index)}>Delete</Button>
+              <Button onClick={() => handleDelete(url.id)}>
+                Delete
+              </Button>
             </Box>
           ))}
         </Box>

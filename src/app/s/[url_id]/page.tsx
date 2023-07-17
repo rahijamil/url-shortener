@@ -1,7 +1,6 @@
 "use client";
 
 import { redirectToLong } from "@/services/url.service";
-import { URL_TYPE } from "@/types/url.types";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
