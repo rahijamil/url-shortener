@@ -15,7 +15,7 @@ This project is a URL Shortener tool that allows users to shorten long URLs into
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/mohammad-rahi/url-shortener.git`
+1. Clone the repository: `gh repo clone mohammad-rahi/url-shortener`
 2. Install dependencies: `pnpm install`
 
 ## Usage
