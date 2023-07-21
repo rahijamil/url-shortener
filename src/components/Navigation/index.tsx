@@ -9,12 +9,66 @@ import {
   Typography,
   Box,
   Container,
+  useMediaQuery,
+  IconButton,
 } from "@mui/material";
 import Link from "next/link";
 import { navigations } from "./navigations";
+import { useTheme } from "@mui/system";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
 
 export default function Navigation() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  const toggleDrawer = (open: boolean) => () => {
+    setIsOpen(open);
+  };
+
+  const renderNavigation = () => (
+    <Box
+      display="flex"
+      flexDirection={isMobile ? "column" : "row"}
+      gap={1}
+      alignItems="center"
+      width={isMobile ? 200 : "auto"}
+      paddingTop={isMobile ? "50px" : 0}
+    >
+      {navigations.map((navigation) => (
+        <Box
+          key={navigation.id}
+          flex={1}
+          minWidth={isMobile ? "184px" : "100px"}
+        >
+          <Link href={navigation.path} passHref>
+            <Button
+              fullWidth
+              style={{
+                border: `2px solid ${
+                  pathname === navigation.path ||
+                  (navigation.path === "/edit" && pathname.startsWith("/edit"))
+                    ? isMobile
+                      ? "royalblue"
+                      : "white"
+                    : "transparent"
+                }`,
+                justifyContent: "center",
+              }}
+              color="inherit"
+              aria-label={`${navigation.name} Page Navigation`}
+              onClick={() => setIsOpen(false)}
+            >
+              {navigation.name}
+            </Button>
+          </Link>
+        </Box>
+      ))}
+    </Box>
+  );
 
   return (
     <AppBar position="fixed">
@@ -39,27 +93,28 @@ export default function Navigation() {
                 </Box>
               </Link>
             </Box>
-
-            <Box>
-              {navigations.map((navigation) => (
-                <Link href={navigation.path} passHref key={navigation.id}>
-                  <Button
-                    style={{
-                      border: `2px solid ${
-                        pathname === navigation.path ? "white" : "transparent"
-                      }`,
-                    }}
-                    color="inherit"
-                    // variant={
-                    //   pathname === navigation.path ? "contained" : "text"
-                    // }
-                    aria-label={`${navigation.name} Page Navigation`}
-                  >
-                    {navigation.name}
-                  </Button>
-                </Link>
-              ))}
-            </Box>
+            {isMobile ? (
+              <>
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={toggleDrawer(true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <SwipeableDrawer
+                  anchor={"right"}
+                  open={isOpen}
+                  onClose={toggleDrawer(false)}
+                  onOpen={toggleDrawer(true)}
+                >
+                  {renderNavigation()}
+                </SwipeableDrawer>
+              </>
+            ) : (
+              renderNavigation()
+            )}
           </Box>
         </Container>
       </Toolbar>

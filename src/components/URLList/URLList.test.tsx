@@ -15,7 +15,7 @@ const mockUrls: URL_TYPE[] = [
 test("renders a list of shortened URLs", () => {
   const handleClick = jest.fn();
 
-  render(<URLList urls={mockUrls} onItemClick={handleClick} />);
+  render(<URLList onItemClick={handleClick} />);
 
   const listItems = screen.getAllByRole("listitem");
   expect(listItems).toHaveLength(mockUrls.length);

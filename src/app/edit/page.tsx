@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+// Importing necessary packages and components
 import {
   Box,
   Container,
@@ -11,9 +11,18 @@ import {
 import { URLList } from "@/components";
 import { redirectToLong } from "@/services/url.service";
 import useURLs from "@/hooks/useURLs";
+import { useMemo } from "react";
 
+// Component function for ListPage
 export default function ListPage() {
+  // Using custom hook to fetch the list of URLs and loading state
   const { urls, loading } = useURLs();
+
+  // Use useMemo to optimize performance by avoiding re-renders of URLList
+  const memoizedURLList = useMemo(
+    () => <URLList onItemClick={redirectToLong} showIconsBox />,
+    []
+  );
 
   return (
     <Container>
@@ -21,20 +30,19 @@ export default function ListPage() {
         <Typography variant="h4">Edit or Delete Shortened URLs</Typography>
         <Box mt={4} maxWidth={640} mx="auto">
           {loading ? (
+            // If data is loading, display a CircularProgress
             <Box display="flex" justifyContent="center" my={4}>
               <CircularProgress color="primary" />
             </Box>
           ) : (
             <>
               {urls.length > 0 ? (
-                <URLList
-                  urls={urls}
-                  onItemClick={redirectToLong}
-                  showIconsBox
-                />
+                // If URLs are available, display them in the Paper component
+                {memoizedURLList}
               ) : (
+                // If no URLs are available, display a message
                 <Box textAlign="center">
-                  <Typography>No shortend URL found</Typography>
+                  <Typography>No shortened URL found</Typography>
                 </Box>
               )}
             </>

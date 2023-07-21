@@ -18,18 +18,16 @@ import { useEffect, useState } from "react";
 import useUrls from "@/hooks/useURLs";
 
 export type URLListProps = {
-  urls: Array<URL_TYPE>;
   onItemClick: (id: string) => void;
   showIconsBox?: boolean;
 };
 
 const URLList: React.FC<URLListProps> = ({
-  urls,
   onItemClick,
   showIconsBox,
 }) => {
   const router = useRouter();
-  const { handleDelete } = useUrls();
+  const { handleDelete, urls } = useUrls();
   const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
   const [deleteItemId, setDeleteItemId] = useState<string | null>(null);
 
