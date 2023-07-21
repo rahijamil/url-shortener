@@ -1,24 +1,25 @@
-# Mohammad Rahi
+# Mohammad Rahi 
 
-## Full-Stack Developer
+## Full-Stack Developer | Frontend Engineer
 
-📧 cs.mohammadrahi@gmail.com | 🌐 https://github.com/mohammad-rahi | 💼 LinkedIn: Mohammad (CS Rahi) Rahi | 📍 Dhaka, Bangladesh
+📧 cs.mohammadrahi@gmail.com | 🌐 https://github.com/mohammad-rahi | 💼 LinkedIn: [Mohammad (CS Rahi) Rahi](https://linkedin.com/in/csrahi) | 📍 Dhaka, Bangladesh
 
 ---
 
 ## About
 
-Passionate full-stack developer specializing in building web and mobile applications with React, React Native, Redux, and Next.js. Proficient in Express.js, GraphQL, MongoDB, and Firebase. Continually exploring new technologies and staying up-to-date with the latest industry trends.
+Crafting high-performance PWAs using NextJS and React Native is my specialty. I'm committed to optimizing web performance and building robust, scalable digital solutions. Passionate about exploring and staying ahead of tech trends, with a current focus on Web3.0. Actively contributing to open-source projects and sharing knowledge through tech articles on [medium](https://mohammadrahi.medium.com), continuously learning, and growing as a developer.
 
 ---
 
 ## Skills
 
-- Front-End Development: Tailwind CSS, TypeScript, NextJS, Redux, React Native
-- Back-End Development: ExpressJS
-- Database Management: Prisma, MongoDB, MySQL, PostgreSQL, Firebase, Supabase
+- Front-End Development: HTML, CSS, SASS, Tailwind CSS, Material UI, JavaScript, TypeScript, React, NextJS
+- Back-End Development: ExpressJS, Django
+- Database Management: Firebase, Supabase, Prisma, MongoDB, MySQL, PostgreSQL
 - API Protocols: REST API, GraphQL, tRPC
-- Tools: Git, SASS, VS Code, Webpack
+- Testing: Jest
+- Tools: Git, GitHub, VS Code, Docker, Babel
 - Others: SEO
 
 ---
@@ -62,3 +63,12 @@ Passionate full-stack developer specializing in building web and mobile applicat
 - Writing technical articles
 - Reading about technology
 - Exploring Web 3.0
+
+---
+
+## Connect with me
+
+- [LinkedIn](https://linkedin.com/in/csrahi)
+- [GitHub](https://github.com/mohammad-rahi/)
+- [StackOverflow](https://stackoverflow.com/users/16542466/mohammad-rahi)
+- [Medium](https://mohammadrahi.medium.com)
