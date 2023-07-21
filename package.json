@@ -1,6 +1,14 @@
 {
   "name": "url-shortener",
-  "displayName": "URL Shortener",
+  "version": "0.1.0",
+  "description": "A simple URL shortener built with Next.js",
+  "keywords": [
+    "url",
+    "shortener",
+    "nextjs",
+    "react"
+  ],
+  "license": "MIT",
   "repository": {
     "type": "GitHub",
     "url": "https://github.com/mohammad-rahi/url-shortener"
@@ -10,15 +18,18 @@
     "email": "cs.mohammadrahi@gmail.com",
     "url": "https://github.com/mohammad-rahi"
   },
-  "version": "0.1.0",
-  "private": true,
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:build": "storybook build",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

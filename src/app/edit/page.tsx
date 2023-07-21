@@ -6,7 +6,6 @@ import {
   Container,
   Typography,
   CircularProgress,
-  Paper,
 } from "@mui/material";
 import { URLList } from "@/components";
 import { redirectToLong } from "@/services/url.service";
@@ -38,7 +37,7 @@ export default function ListPage() {
             <>
               {urls.length > 0 ? (
                 // If URLs are available, display them in the Paper component
-                {memoizedURLList}
+                memoizedURLList
               ) : (
                 // If no URLs are available, display a message
                 <Box textAlign="center">

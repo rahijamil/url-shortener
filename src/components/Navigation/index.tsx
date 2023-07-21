@@ -17,13 +17,31 @@ import { navigations } from "./navigations";
 import { useTheme } from "@mui/system";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navigation() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() as string;
+
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/serviceworker.js").then(
+          function (registration) {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          },
+          function (err) {
+            console.log("Service Worker registration failed:", err);
+          }
+        );
+      });
+    }
+  }, []);
 
   const toggleDrawer = (open: boolean) => () => {
     setIsOpen(open);

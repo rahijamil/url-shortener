@@ -1,6 +1,5 @@
 "use client";
 
-import { URL_TYPE } from "@/types/url.types";
 import {
   Box,
   List,
