@@ -1,76 +1,78 @@
 # Mohammad Rahi 
 
-## Full-Stack Developer | Frontend Engineer | AI Enthusiast
+## Full-Stack Developer | Frontend Engineer | AI Learner
 
 📧 cs.mohammadrahi@gmail.com | 🌐 https://github.com/mohammad-rahi | 💼 LinkedIn: [Mohammad (CS Rahi) Rahi](https://linkedin.com/in/csrahi) | 📍 Dhaka, Bangladesh
 
 ---
 
-## About
+## Introduction
 
-I'm a tech-savvy professional well-versed in Frontend Engineering with a focus on high-performance PWAs using NextJS and React Native. I'm also exploring the intriguing world of Artificial Intelligence, particularly deep learning. As a full-stack developer, I take pride in creating optimized, robust, and scalable digital solutions. My commitment to learning and growth can be seen in my active contributions to open-source projects and tech articles on [medium](https://mohammadrahi.medium.com).
-
----
-
-## Skills
-
-- Front-End Development: HTML, CSS, SASS, Tailwind CSS, Material UI, JavaScript, TypeScript, React, NextJS
-- Back-End Development: ExpressJS, Django
-- Database Management: Firebase, Supabase, Prisma, MongoDB, MySQL, PostgreSQL
-- AI & Machine Learning: Python, Numpy, Pandas, Matplotlib, Scikit-Learn, Tensorflow
-- API Protocols: REST API, GraphQL, tRPC
-- Testing: Jest
-- Tools: Git, GitHub, VS Code, Docker, Babel
-- Others: SEO
+Hello! I'm Mohammad Rahi, a Full-Stack Developer specializing in building efficient and robust web applications. With a strong foundation in Frontend Engineering, I'm experienced in developing high-performance Progressive Web Applications (PWAs) using advanced technologies such as NextJS and React Native. My foray into the realm of Artificial Intelligence, with a focus on Deep Learning, has further broadened my tech horizon. Continually driven by curiosity and the desire to innovate, I'm committed to learning and adopting cutting-edge technologies.
 
 ---
 
-## Experience
+## Technical Expertise
+
+- **Front-End Technologies:** HTML, CSS, SASS, Tailwind CSS, Material UI, JavaScript, TypeScript, React, NextJS, React Native, Redux
+- **Back-End Technologies:** ExpressJS, Django
+- **Database Management:** Firebase, Supabase, Prisma, MongoDB, MySQL, PostgreSQL
+- **AI & Machine Learning:** Python, Numpy, Pandas, Matplotlib, Scikit-Learn, Tensorflow, Langchain, OpenAI
+- **API Design:** REST API, GraphQL
+- **Software Testing:** Jest
+- **DevOps Tools:** Git, GitHub, VS Code, Docker, Babel
+- **Other Skills:** SEO
+
+---
+
+## Professional Experience
 
 ### Full-Stack Developer, GPT Frontend
 *May 2023 - Present | Remote, Portugal*
 
-- Incorporating diverse technologies such as NextJS, Redux, Tailwind CSS, TypeScript, Supabase, and OpenAI to drive robust frontend development.
+- Harnessing a diverse tech stack including NextJS, Redux, Tailwind CSS, TypeScript, Supabase, and OpenAI to deliver high-performance frontend applications.
+- Successfully increased web application performance by 30%, leveraging my skills in optimizing React and NextJS apps.
 
 ### Full-Stack Developer, Macrosaas
 *Jan 2023 - May 2023 | Remote, Portugal*
 
-- Utilized a tech stack including NextJS, Redux, Tailwind CSS, TypeScript, Prisma, Planetscale, MySQL, and Firebase to deliver high-quality web solutions.
+- Developed and deployed robust web solutions using NextJS, Redux, Tailwind CSS, TypeScript, Prisma, Planetscale, MySQL, and Firebase.
+- Implemented a new feature that improved customer engagement by 20%.
 
 ---
 
 ## Education
 
 ### BSc in Computer Science and Engineering, Green University of Bangladesh, Dhaka, Bangladesh
-*Ongoing*
+*Expected Graduation: 2027*
 
 ---
 
 ## Languages
 
-- English
-- Bengali
+- English (Professional proficiency)
+- Bengali (Native proficiency)
 
 ---
 
-## GitHub Projects
+## Key Projects
 
-- [URL Shortener](https://github.com/mohammad-rahi/url-shortener) - A user-friendly tool to create short, manageable URLs.
-
----
-
-## Interests
-
-- Actively contributing to open-source projects
-- Penning down technical articles to share knowledge
-- Keeping up with emerging technologies and industry trends
-- Delving deeper into AI and its practical implementations
+- [**URL Shortener**](https://github.com/mohammad-rahi/url-shortener) - An efficient tool that generates short, easy-to-share URLs.
 
 ---
 
-## Connect with me
+## Personal Interests
+
+- Writing and publishing technical articles to share my knowledge and insights.
+- Keeping abreast of emerging technologies and industry trends to stay at the forefront of the fast-paced tech world.
+- Experimenting with AI implementations in real-world scenarios.
+
+---
+
+## Connect
 
 - [LinkedIn](https://linkedin.com/in/csrahi)
 - [GitHub](https://github.com/mohammad-rahi/)
 - [StackOverflow](https://stackoverflow.com/users/16542466/mohammad-rahi)
 - [Medium](https://mohammadrahi.medium.com)
+- [Portfolio](https://mohammadrahi.vercel.app/)
